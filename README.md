@@ -1,53 +1,12 @@
-class DisableButton extends StatefulWidget {
-  const DisableButton({
-    Key key,
-    this.width,
-    this.height,
-    this.isUserInscrit,
-  }) : super(key: key);
+Bonjour,
+je suis novice en code, mais j'essaie de réaliser un prototype via FlutterFLOW.
+Je suis actuellement bloqué et limité dans mon projet et je dois créer un "custom widget" pour pouvoir avancer. Cela fait 1 semaine que je tente de créer 2 boutons désactivables en fonction de l'état de l'autre.
 
-  final double width;
-  final double height;
-  final bool isUserInscrit;
+Dans mon appli, pour s'inscrire il faut cliquer sur le bouton 1 : "participer" => en contre partie, le bouton 2 "se désinscrire" est lui en revanche désactiver tant que
+l'utilisateur n'a pas cliqué sur le bouton 1.
+Si l'utilisateur clique sur le bouton 1, celui-ci lance une action PUIS se désactive afin d'éviter de pouvoir s'inscrire plusieurs fois à la suite.
+Le bouton 2 s'active alors pour lui permettre de changer d'avis et de pouvoir se désinscrire.
+Bref, si on clique sur 1, le bouton 2 s'active, alors que le bouton se désactive. Si on clique sur le bouton2 le bouton 1 s'active, alors que 2 se désactive.
 
-  @override
-  _DisableButtonState createState() => _DisableButtonState();
-}
-
-class _DisableButtonState extends State<DisableButton> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              elevation: 10,
-              primary: Colors.greenAccent,
-              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              textStyle: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Lexend Deca',
-              )),
-          onPressed: () {},
-          child: const Text('Participer'),
-        ),
-        const SizedBox(height: 20),
-        ElevatedButton(
-          child: const Text('Se désinscrire'),
-          onPressed: null,
-          style: ElevatedButton.styleFrom(
-              elevation: 10,
-              primary: Colors.redAccent,
-              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              textStyle: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Lexend Deca',
-              )),
-        ),
-      ],
-    );
-  }
-}
+C'est très basic comme fonction, mais je galère. Si quelqu'un peut me conseiller, je serais preneur de votre aide.
+Merci pour votre lecture
