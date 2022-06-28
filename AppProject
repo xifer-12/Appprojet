@@ -1,44 +1,53 @@
-class MyHomePage extends StatefulWidget {
+class DisableButton extends StatefulWidget {
+  const DisableButton({
+    Key key,
+    this.width,
+    this.height,
+    this.isUserInscrit,
+  }) : super(key: key);
+
+  final double width;
+  final double height;
+  final bool isUserInscrit;
+
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _DisableButtonState createState() => _DisableButtonState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  bool _isButtonDisabled;
-
-  @override
-  void initState() {
-    _isButtonDisabled = false;
-  }
-
-  void _incrementCounter() {
-    setState(() {
-      _isButtonDisabled = true;
-      _counter++;
-    });
-  }
-
+class _DisableButtonState extends State<DisableButton> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("The App"),
-      ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            _buildCounterButton(),
-          ],
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              elevation: 10,
+              primary: Colors.greenAccent,
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+              textStyle: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Lexend Deca',
+              )),
+          onPressed: () {},
+          child: const Text('Participer'),
         ),
-      ),
+        const SizedBox(height: 20),
+        ElevatedButton(
+          child: const Text('Se désinscrire'),
+          onPressed: null,
+          style: ElevatedButton.styleFrom(
+              elevation: 10,
+              primary: Colors.redAccent,
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+              textStyle: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Lexend Deca',
+              )),
+        ),
+      ],
     );
   }
+}
